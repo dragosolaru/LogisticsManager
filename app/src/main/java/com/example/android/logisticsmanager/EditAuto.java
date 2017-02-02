@@ -2,6 +2,7 @@ package com.example.android.logisticsmanager;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -31,32 +32,14 @@ public class EditAuto {
         db.insert(DBHelper.TABLE, null, contentValue);
     }
 
-
-    public void delete(int cars_Id) {
-
-        db = dbHelper.getWritableDatabase();
-        // It's a good practice to use parameter ?, instead of concatenate string
-        db.delete(DBHelper.TABLE, DBHelper._ID + "= ?", new String[] { String.valueOf(cars_Id) });
-        db.close(); // Closing database connection
+    public void delete(int _id) {
+        db=dbHelper.getWritableDatabase();
+        db.delete(DBHelper.TABLE, DBHelper._ID + "=" + _id, null);
     }
 
-    public void update(Auto auto) {
 
-        db = dbHelper.getWritableDatabase();
-        ContentValues contentValue = new ContentValues();
-
-        contentValue.put(DBHelper.NR_INM, auto.getNr_inm());
-        contentValue.put(DBHelper.MARCA, auto.getMarca());
-        contentValue.put(DBHelper.TIP, auto.getTip());
-        contentValue.put(DBHelper.DATA, auto.getData());
-        contentValue.put(DBHelper.SOFER, auto.getSofer());
-
-        // It's a good practice to use parameter ?, instead of concatenate string
-        db.update(DBHelper.TABLE, contentValue, DBHelper._ID + "= ?", new String[] { String.valueOf(auto.getAuto_Id()) });
-        db.close(); // Closing database connection
-    }
     public int updateAutoById(long _id, Auto aut) {
-
+        db=dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.NR_INM, aut.getNr_inm());
         values.put(DBHelper.MARCA, aut.getMarca());
@@ -66,6 +49,7 @@ public class EditAuto {
 
         int i = db.update(DBHelper.TABLE, values, DBHelper._ID + " = " + _id, null);
         return i;
+
     }
     public ArrayList<HashMap<String, String>> getCarsList() {
         //Open connection to read only
@@ -152,4 +136,28 @@ public class EditAuto {
 //        long auto_Id = db.insert(DBHelper.TABLE, null, contentValue);
 //        db.close(); // Closing database connection
 //        return (int) auto_Id; //cast to int
+//    }
+//    public void delete(int cars_Id) {
+//
+//        db = dbHelper.getWritableDatabase();
+//        // It's a good practice to use parameter ?, instead of concatenate string
+//        db.delete(DBHelper.TABLE, DBHelper._ID + "= ?", new String[] { String.valueOf(cars_Id) });
+//        db.close(); // Closing database connection
+//    }
+
+
+//    public void update(Auto auto) {
+//
+//        db = dbHelper.getWritableDatabase();
+//        ContentValues contentValue = new ContentValues();
+//
+//        contentValue.put(DBHelper.NR_INM, auto.getNr_inm());
+//        contentValue.put(DBHelper.MARCA, auto.getMarca());
+//        contentValue.put(DBHelper.TIP, auto.getTip());
+//        contentValue.put(DBHelper.DATA, auto.getData());
+//        contentValue.put(DBHelper.SOFER, auto.getSofer());
+//
+//        // It's a good practice to use parameter ?, instead of concatenate string
+//        db.update(DBHelper.TABLE, contentValue, DBHelper._ID + "= ?", new String[] { String.valueOf(auto.getAuto_Id()) });
+//        db.close(); // Closing database connection
 //    }

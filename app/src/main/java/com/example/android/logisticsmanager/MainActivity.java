@@ -19,13 +19,13 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     Button btnAdd,btnGetAll;
     TextView auto_Id;
+    EditAuto repo;
 
     @Override
     public void onClick(View view) {
         if (view == findViewById(R.id.btnAdd)){
-
             Intent intent = new Intent(this,CarsDetail.class);
-            intent.putExtra("auto_Id",0);
+            //intent.putExtra("auto_Id",0);
             startActivity(intent);
         }
     }
@@ -46,7 +46,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     public void listeaza(){
 
-        EditAuto repo = new EditAuto(this);
+        repo = new EditAuto(this);
 
         ArrayList<HashMap<String, String>> carsList =  repo.getCarsList();
         if(carsList.size()!=0) {
