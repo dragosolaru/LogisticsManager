@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cars_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.android.logisticsmanager.CarsDetail"
+    android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/numar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enter_nr"
+            android:inputType="textCapCharacters">
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/marca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enter_marca"
+            android:inputType="textMultiLine|textCapWords"></EditText>
+
+        <EditText
+            android:id="@+id/tipul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enter_type"
+            android:inputType="textMultiLine"></EditText>
+
+        <EditText
+            android:id="@+id/data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/data_inmatricularii"
+            android:inputType="date"></EditText>
+
+        <EditText
+            android:id="@+id/sofer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/sofer"
+            android:inputType="textCapWords">
+
+        </EditText>
+
+        <LinearLayout
+            android:id="@+id/layout_button_add"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:id="@+id/btnSave"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/btnClose" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:id="@+id/btnClose"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:id="@+id/btnDelete"
+                android:layout_alignTop="@+id/btnSave"
+                android:layout_toLeftOf="@+id/btnSave" />
+        </LinearLayout>
+
+</LinearLayout>
