@@ -25,7 +25,6 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
     public void onClick(View view) {
         if (view == findViewById(R.id.btnAdd)){
             Intent intent = new Intent(this,CarsDetail.class);
-            //intent.putExtra("auto_Id",0);
             startActivity(intent);
         }
     }
