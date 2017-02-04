@@ -5,4 +5,5 @@
     <string name="enter_type">tipul</string>
     <string name="data_inmatricularii">data inmatricuarii</string>
     <string name="sofer">nume sofer</string>
+    <string name="add_record">Add Cars</string>
 </resources>

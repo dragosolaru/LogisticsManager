@@ -3,6 +3,8 @@ package com.example.android.logisticsmanager;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,14 +22,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
     Button btnAdd,btnGetAll;
     TextView auto_Id;
     EditAuto repo;
-
-    @Override
-    public void onClick(View view) {
-        if (view == findViewById(R.id.btnAdd)){
-            Intent intent = new Intent(this,CarsDetail.class);
-            startActivity(intent);
-        }
-    }
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +36,14 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         btnGetAll = (Button) findViewById(R.id.btnGetAll);
         btnGetAll.setOnClickListener(this);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == findViewById(R.id.btnAdd)) {
+            intent = new Intent(this, CarsDetail.class);
+            startActivity(intent);
+        }
     }
 
     public void listeaza(){
@@ -62,7 +65,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
             });
             ListAdapter adapter = new SimpleAdapter( MainActivity.this,carsList, R.layout.view_car_entry,
                     new String[] { "id","numar","marca","tip","data","sofer"},
-                    new int[] {R.id.id, R.id.numar, R.id.marca, R.id.tipul, R.id.data,R.id.sofer});
+                    new int[]{R.id.id, R.id.numar, R.id.marca, R.id.type, R.id.data, R.id.sofer});
 
             setListAdapter(adapter);
         }else{
@@ -71,5 +74,22 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.add_record) {
+
+            Intent add_mem = new Intent(this, CarsDetail.class);
+            startActivity(add_mem);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
