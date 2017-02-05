@@ -17,9 +17,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/enter_nr"
-            android:inputType="textCapCharacters">
-            <requestFocus />
-        </EditText>
+            android:inputType="textCapCharacters"/>
+
+
 
         <EditText
             android:id="@+id/marca"
@@ -27,15 +27,15 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/enter_marca"
-            android:inputType="textMultiLine|textCapWords"></EditText>
+            android:inputType="textMultiLine|textCapWords"/>
 
-        <EditText
-            android:id="@+id/tipul"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/enter_type"
-            android:inputType="textMultiLine"></EditText>
+    <AutoCompleteTextView
+        android:id="@+id/autoComplTipul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_type"/>
+
 
         <EditText
             android:id="@+id/data"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/data_inmatricularii"
-            android:inputType="date"></EditText>
+            android:inputType="date"/>
 
         <EditText
             android:id="@+id/sofer"
@@ -64,27 +64,24 @@
             android:weightSum="3">
             <Button
                 android:id="@+id/btnSave"
+                style="@style/Base.TextAppearance.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toLeftOf="@+id/btnSend"
-                android:text="Save" />
+                android:text="@string/save"/>
 
             <Button
                 android:id="@+id/btnDelete"
+                style="@style/Base.TextAppearance.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/btnSave"
-                android:layout_toLeftOf="@+id/btnSave"
-                android:text="Delete" />
+                android:text="@string/delete"/>
 
             <Button
                 android:id="@+id/btnSend"
+                style="@style/Base.TextAppearance.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:text="Send" />
+                android:text="@string/send"/>
 
         </LinearLayout>
 

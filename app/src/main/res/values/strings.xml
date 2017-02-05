@@ -6,4 +6,21 @@
     <string name="data_inmatricularii">data inmatricuarii</string>
     <string name="sofer">nume sofer</string>
     <string name="add_record">Add Cars</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="send">Send</string>
+
+    <string-array name="tipuri_auto">
+    <item>Berlină</item>
+    <item>Break</item>
+    <item>Limuzină</item>
+    <item>Pick-up</item>
+    <item>Microbus</item>
+    <item>Autocar</item>
+    <item>Camion</item>
+    <item>TIR</item>
+    <item>Autoutilitara</item>
+    <item>Remorca</item>
+
+</string-array>
 </resources>

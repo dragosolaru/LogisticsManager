@@ -43,6 +43,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         if (view == findViewById(R.id.btnAdd)) {
             intent = new Intent(this, CarsDetail.class);
             startActivity(intent);
+
         }
     }
 
@@ -56,6 +57,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                    Button btnSaveU = (Button)findViewById(R.id.btnSave);
                     auto_Id = (TextView) view.findViewById(R.id.id);
                     String carId = auto_Id.getText().toString();
                     Intent objIndent = new Intent(getApplicationContext(),CarsDetail.class);
@@ -66,7 +68,6 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
             ListAdapter adapter = new SimpleAdapter( MainActivity.this,carsList, R.layout.view_car_entry,
                     new String[] { "id","numar","marca","tip","data","sofer"},
                     new int[]{R.id.id, R.id.numar, R.id.marca, R.id.type, R.id.data, R.id.sofer});
-
             setListAdapter(adapter);
         }else{
             Toast.makeText(this,"No Cars!",Toast.LENGTH_SHORT).show();
