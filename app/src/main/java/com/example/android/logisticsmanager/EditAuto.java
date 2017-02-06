@@ -71,7 +71,7 @@ public class EditAuto {
 
         if (cursor.moveToFirst()) {
             do {
-                HashMap<String, String> car = new HashMap<String, String>();
+                HashMap<String, String> car = new HashMap<>();
                 car.put("id", cursor.getString(cursor.getColumnIndex(DBHelper._ID)));
                 car.put("numar", cursor.getString(cursor.getColumnIndex(DBHelper.NR_INM)));
                 car.put("marca", cursor.getString(cursor.getColumnIndex(DBHelper.MARCA)));

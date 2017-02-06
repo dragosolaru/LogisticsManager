@@ -1,5 +1,6 @@
 package com.example.android.logisticsmanager;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
         autoComplet();
         takeAndManInfo();
+
     }
 
     @Override
@@ -112,16 +114,29 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
         e_a = new EditAuto(this);
 
         Auto auto = e_a.getAutoById(_Auto_Id);
-
         nrText.setText(auto.getNr_inm());
         marcaText.setText(auto.getMarca());
         tipText.setText(auto.getTip());
         dataText.setText(auto.getData());
         soferText.setText(auto.getSofer());
 
+        dataText.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            public void onFocusChange (View view, boolean hasfocus){
+                if(hasfocus){
+                    DateDialog dialog=new DateDialog(view);
+                    FragmentTransaction ft =getFragmentManager().beginTransaction();
+                    dialog.show(ft, "DatePicker");
+                }
+            }
+
+        });
+
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnSend.setOnClickListener(this);
+
+
+
     }
 
 }
