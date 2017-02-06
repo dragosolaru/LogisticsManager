@@ -2,7 +2,6 @@ package com.example.android.logisticsmanager;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -18,11 +17,11 @@ public class EditAuto {
     private SQLiteDatabase db;
 
     public EditAuto(Context context) {
-        dbHelper=new DBHelper(context);
+        dbHelper = new DBHelper(context);
     }
 
     public void insertAuto(Auto aut) {
-        db=dbHelper.getReadableDatabase();
+        db = dbHelper.getReadableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put(DBHelper.NR_INM, aut.getNr_inm());
         contentValue.put(DBHelper.MARCA, aut.getMarca());
@@ -33,13 +32,13 @@ public class EditAuto {
     }
 
     public void delete(int _id) {
-        db=dbHelper.getWritableDatabase();
+        db = dbHelper.getWritableDatabase();
         db.delete(DBHelper.TABLE, DBHelper._ID + "=" + _id, null);
     }
 
 
     public int updateAutoById(long _id, Auto aut) {
-        db=dbHelper.getWritableDatabase();
+        db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.NR_INM, aut.getNr_inm());
         values.put(DBHelper.MARCA, aut.getMarca());
@@ -51,10 +50,11 @@ public class EditAuto {
         return i;
 
     }
+
     public ArrayList<HashMap<String, String>> getCarsList() {
         //Open connection to read only
-         db = dbHelper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
+        db = dbHelper.getReadableDatabase();
+        String selectQuery = "SELECT  " +
                 DBHelper._ID + "," +
                 DBHelper.NR_INM + "," +
                 DBHelper.MARCA + "," +
@@ -63,7 +63,7 @@ public class EditAuto {
                 DBHelper.SOFER +
                 " FROM " + DBHelper.TABLE;
 
-       // Auto auto = new Auto();
+        // Auto auto = new Auto();
         ArrayList<HashMap<String, String>> carsList = new ArrayList<HashMap<String, String>>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -86,9 +86,10 @@ public class EditAuto {
         db.close();
         return carsList;
     }
-    public Auto getAutoById(int Id){
+
+    public Auto getAutoById(int Id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
+        String selectQuery = "SELECT  " +
                 DBHelper._ID + "," +
                 DBHelper.NR_INM + "," +
                 DBHelper.MARCA + "," +
@@ -99,10 +100,10 @@ public class EditAuto {
                 + " WHERE " +
                 DBHelper._ID + "=?";// It's a good practice to use parameter ?, instead of concatenate string
 
-        int iCount =0;
+        int iCount = 0;
         Auto auto = new Auto();
 
-        Cursor cursor = db.rawQuery(selectQuery, new String[] { String.valueOf(Id) } );
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(Id)});
 
         if (cursor.moveToFirst()) {
             do {

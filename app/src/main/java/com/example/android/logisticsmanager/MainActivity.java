@@ -17,9 +17,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends ListActivity implements android.view.View.OnClickListener{
+public class MainActivity extends ListActivity implements android.view.View.OnClickListener {
 
-    Button btnAdd,btnGetAll;
+    Button btnAdd, btnGetAll;
     TextView auto_Id;
     EditAuto repo;
     Intent intent;
@@ -47,30 +47,30 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         }
     }
 
-    public void listeaza(){
+    public void listeaza() {
 
         repo = new EditAuto(this);
 
-        ArrayList<HashMap<String, String>> carsList =  repo.getCarsList();
-        if(carsList.size()!=0) {
+        ArrayList<HashMap<String, String>> carsList = repo.getCarsList();
+        if (carsList.size() != 0) {
             ListView lv = getListView();
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                    Button btnSaveU = (Button)findViewById(R.id.btnSave);
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Button btnSaveU = (Button) findViewById(R.id.btnSave);
                     auto_Id = (TextView) view.findViewById(R.id.id);
                     String carId = auto_Id.getText().toString();
-                    Intent objIndent = new Intent(getApplicationContext(),CarsDetail.class);
-                    objIndent.putExtra("auto_Id", Integer.parseInt( carId));
+                    Intent objIndent = new Intent(getApplicationContext(), CarsDetail.class);
+                    objIndent.putExtra("auto_Id", Integer.parseInt(carId));
                     startActivity(objIndent);
                 }
             });
-            ListAdapter adapter = new SimpleAdapter( MainActivity.this,carsList, R.layout.view_car_entry,
-                    new String[] { "id","numar","marca","tip","data","sofer"},
+            ListAdapter adapter = new SimpleAdapter(MainActivity.this, carsList, R.layout.view_car_entry,
+                    new String[]{"id", "numar", "marca", "tip", "data", "sofer"},
                     new int[]{R.id.id, R.id.numar, R.id.marca, R.id.type, R.id.data, R.id.sofer});
             setListAdapter(adapter);
-        }else{
-            Toast.makeText(this,"No Cars!",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "No Cars!", Toast.LENGTH_SHORT).show();
         }
 
     }

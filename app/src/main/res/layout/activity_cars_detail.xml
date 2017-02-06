@@ -11,78 +11,78 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.logisticsmanager.CarsDetail">
 
-        <EditText
-            android:id="@+id/numar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/enter_nr"
-            android:inputType="textCapCharacters"/>
+    <EditText
+        android:id="@+id/numar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_nr"
+        android:inputType="textCapCharacters" />
 
 
-
-        <EditText
-            android:id="@+id/marca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/enter_marca"
-            android:inputType="textMultiLine|textCapWords"/>
+    <EditText
+        android:id="@+id/marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_marca"
+        android:inputType="textMultiLine|textCapWords" />
 
     <AutoCompleteTextView
         android:id="@+id/autoComplTipul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/enter_type"/>
+        android:hint="@string/enter_type" />
 
 
-        <EditText
-            android:id="@+id/data"
-            android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/data_inmatricularii"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/sofer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/sofer"
+        android:inputType="textCapWords">
+
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/layout_buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/Base.TextAppearance.AppCompat.Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/data_inmatricularii"
-            android:inputType="date"/>
+            android:text="@string/save" />
 
-        <EditText
-            android:id="@+id/sofer"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnDelete"
+            style="@style/Base.TextAppearance.AppCompat.Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/sofer"
-            android:inputType="textCapWords">
+            android:text="@string/delete" />
 
-        </EditText>
-
-        <LinearLayout
-            android:id="@+id/layout_buttons"
-            android:layout_width="fill_parent"
+        <Button
+            android:id="@+id/btnSend"
+            style="@style/Base.TextAppearance.AppCompat.Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:weightSum="3">
-            <Button
-                android:id="@+id/btnSave"
-                style="@style/Base.TextAppearance.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save"/>
+            android:text="@string/send" />
 
-            <Button
-                android:id="@+id/btnDelete"
-                style="@style/Base.TextAppearance.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/delete"/>
-
-            <Button
-                android:id="@+id/btnSend"
-                style="@style/Base.TextAppearance.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/send"/>
-
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

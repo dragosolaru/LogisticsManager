@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class CarsDetail extends AppCompatActivity implements android.view.View.OnClickListener {
 
-    public  Button btnSave, btnDelete, btnSend;
+    public Button btnSave, btnDelete, btnSend;
     private EditText nrText;
     private EditText marcaText;
     private EditText dataText;
@@ -25,35 +25,9 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars_detail);
+
         autoComplet();
-
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
-        btnSend = (Button) findViewById(R.id.btnSend);
-
-        nrText = (EditText) findViewById(R.id.numar);
-        marcaText = (EditText) findViewById(R.id.marca);
-        tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
-        dataText = (EditText) findViewById(R.id.data);
-        soferText = (EditText) findViewById(R.id.sofer);
-
-
-        Intent intent = getIntent();
-        _Auto_Id = intent.getIntExtra("auto_Id", 0);
-        e_a = new EditAuto(this);
-
-        Auto auto;
-        auto = e_a.getAutoById(_Auto_Id);
-
-        nrText.setText(auto.getNr_inm());
-        marcaText.setText(auto.getMarca());
-        tipText.setText(auto.getTip());
-        dataText.setText(auto.getData());
-        soferText.setText(auto.getSofer());
-
-        btnSave.setOnClickListener(this);
-        btnDelete.setOnClickListener(this);
-        btnSend.setOnClickListener(this);
+        takeAndManInfo();
     }
 
     @Override
@@ -121,6 +95,35 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
         tipText.setThreshold(1);//will start working from first character
         tipText.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
     }
+
+    public void takeAndManInfo() {
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnDelete = (Button) findViewById(R.id.btnDelete);
+        btnSend = (Button) findViewById(R.id.btnSend);
+
+        nrText = (EditText) findViewById(R.id.numar);
+        marcaText = (EditText) findViewById(R.id.marca);
+        tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
+        dataText = (EditText) findViewById(R.id.data);
+        soferText = (EditText) findViewById(R.id.sofer);
+
+        Intent intent = getIntent();
+        _Auto_Id = intent.getIntExtra("auto_Id", 0);
+        e_a = new EditAuto(this);
+
+        Auto auto = e_a.getAutoById(_Auto_Id);
+
+        nrText.setText(auto.getNr_inm());
+        marcaText.setText(auto.getMarca());
+        tipText.setText(auto.getTip());
+        dataText.setText(auto.getData());
+        soferText.setText(auto.getSofer());
+
+        btnSave.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
+        btnSend.setOnClickListener(this);
+    }
+
 }
 //            auto.setNr_inm(nrText.getText().toString());
 //            auto.setMarca(marcaText.getText().toString());

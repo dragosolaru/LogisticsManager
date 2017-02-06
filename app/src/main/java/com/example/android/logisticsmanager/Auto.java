@@ -13,8 +13,8 @@ public class Auto {
     private String data;
     private String sofer;
 
-    Auto(int auto_Id,String nr_inm, String marca, String tip, String data, String sofer) {
-        this.auto_Id=auto_Id;
+    Auto(int auto_Id, String nr_inm, String marca, String tip, String data, String sofer) {
+        this.auto_Id = auto_Id;
         this.nr_inm = nr_inm;
         this.marca = marca;
         this.tip = tip;

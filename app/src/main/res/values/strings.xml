@@ -11,16 +11,16 @@
     <string name="send">Send</string>
 
     <string-array name="tipuri_auto">
-    <item>Berlină</item>
-    <item>Break</item>
-    <item>Limuzină</item>
-    <item>Pick-up</item>
-    <item>Microbus</item>
-    <item>Autocar</item>
-    <item>Camion</item>
-    <item>TIR</item>
-    <item>Autoutilitara</item>
-    <item>Remorca</item>
+        <item>Berlină</item>
+        <item>Break</item>
+        <item>Limuzină</item>
+        <item>Pick-up</item>
+        <item>Microbus</item>
+        <item>Autocar</item>
+        <item>Camion</item>
+        <item>TIR</item>
+        <item>Autoutilitara</item>
+        <item>Remorca</item>
 
-</string-array>
+    </string-array>
 </resources>

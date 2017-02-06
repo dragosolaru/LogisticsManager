@@ -15,8 +15,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NR_INM = "nr_inmatriculare";
     public static final String MARCA = "marca";
     public static final String TIP = "tip_auto";
-    public static final String DATA="data_inmatriculare";
-    public static final String SOFER="sofer";
+    public static final String DATA = "data_inmatriculare";
+    public static final String SOFER = "sofer";
     //version number to upgrade database version
     //each time if you Add, Edit table, you need to change the
     //version number.
@@ -25,15 +25,15 @@ public class DBHelper extends SQLiteOpenHelper {
     // Database Name
     private static final String DATABASE_NAME = "crud.db";
 
-    public DBHelper(Context context ) {
+    public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //All necessary tables you like to create will create here
-        String CREATE_TABLE_CARS = "CREATE TABLE " + TABLE  + "("
-                + _ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String CREATE_TABLE_CARS = "CREATE TABLE " + TABLE + "("
+                + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NR_INM + " TEXT NOT NULL, "
                 + MARCA + " TEXT NOT NULL, "
                 + TIP + " TEXT NOT NULL, "
