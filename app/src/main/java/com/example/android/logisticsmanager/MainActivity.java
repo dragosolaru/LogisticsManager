@@ -29,12 +29,20 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listeaza();
+        Auto a = new Auto();
+
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
 
         btnGetAll = (Button) findViewById(R.id.btnGetAll);
-        btnGetAll.setOnClickListener(this);
+        btnGetAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dbmanager = new Intent(MainActivity.this, AndroidDatabaseManager.class);
+                startActivity(dbmanager);
+            }
+        });
 
     }
 
@@ -93,4 +101,6 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -21,6 +21,8 @@ public class EditAuto {
     }
 
     public void insertAuto(Auto aut) {
+
+//        Utilitara u=new Utilitara(aut.getNr_inm(),aut.getMarca(),aut.getTip(),aut.getData(),aut.getSofer(),"ceva altceva");
         db = dbHelper.getReadableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put(DBHelper.NR_INM, aut.getNr_inm());
@@ -28,6 +30,9 @@ public class EditAuto {
         contentValue.put(DBHelper.TIP, aut.getTip());
         contentValue.put(DBHelper.DATA, aut.getData());
         contentValue.put(DBHelper.SOFER, aut.getSofer());
+//        if (aut.getTip().equalsIgnoreCase("TIr")){
+//            contentValue.put(DBHelper.LICENTA, u.getLicenta());
+//        }
         db.insert(DBHelper.TABLE, null, contentValue);
     }
 

@@ -28,12 +28,20 @@
         android:hint="@string/enter_marca"
         android:inputType="textMultiLine|textCapWords" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoComplTipul"
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/enter_type" />
+        android:entries="@array/tipuri_auto"
+        android:prompt="@string/spinner_name" />
+
+    <!--<AutoCompleteTextView-->
+    <!--android:id="@+id/autoComplTipul"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:ems="10"-->
+    <!--android:hint="@string/enter_type" />-->
 
 
     <EditText

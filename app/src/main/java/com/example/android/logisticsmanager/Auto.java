@@ -58,6 +58,7 @@ public class Auto {
     }
 
     public String getTip() {
+
         return tip;
     }
 

@@ -5,10 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class CarsDetail extends AppCompatActivity implements android.view.View.OnClickListener {
@@ -18,16 +17,18 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
     private EditText marcaText;
     private EditText dataText;
     private EditText soferText;
-    private AutoCompleteTextView tipText;
+    //private AutoCompleteTextView tipText;
     private int _Auto_Id;
     private EditAuto e_a;
+    private Spinner tipText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars_detail);
 
-        autoComplet();
+
+        //   autoComplet();
         takeAndManInfo();
 
     }
@@ -37,7 +38,8 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
         Intent intent = new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         final String numar = nrText.getText().toString();
         final String marca = marcaText.getText().toString();
-        final String tip = tipText.getText().toString();
+        final String tip = tipText.getSelectedItem().toString();
+        //   final String tip = tipText.getText().toString();
         final String data = dataText.getText().toString();
         final String sofer = soferText.getText().toString();
 
@@ -51,7 +53,6 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
         switch (view.getId()) {
             case R.id.btnSave:
-                //  intent = new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 if (_Auto_Id == 0) {
                     e_a.insertAuto(auto);
                     startActivity(intent);
@@ -64,7 +65,6 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
                 break;
 
             case R.id.btnDelete:
-                //   EditAuto repo = new EditAuto(this);
                 e_a.delete(_Auto_Id);
                 Toast.makeText(this, "Cars Record Deleted", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
@@ -87,16 +87,16 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
     }
 
-    public void autoComplet() {
-        //Creating the instance of ArrayAdapter containing list of language names
-        ArrayAdapter<String> adapter = new ArrayAdapter<>
-                (this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.tipuri_auto));
-
-        //Getting the instance of AutoCompleteTextView
-        tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
-        tipText.setThreshold(1);//will start working from first character
-        tipText.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-    }
+//    public void autoComplet() {
+//        //Creating the instance of ArrayAdapter containing list of language names
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>
+//                (this, android.R.layout.select_dialog_item, getResources().getStringArray(R.array.tipuri_auto));
+//
+//        //Getting the instance of AutoCompleteTextView
+//        tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
+//        tipText.setThreshold(1);//will start working from first character
+//        tipText.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
+//    }
 
     public void takeAndManInfo() {
         btnSave = (Button) findViewById(R.id.btnSave);
@@ -105,18 +105,19 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
         nrText = (EditText) findViewById(R.id.numar);
         marcaText = (EditText) findViewById(R.id.marca);
-        tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
+        tipText = (Spinner) findViewById(R.id.spinner);
+        //     tipText = (AutoCompleteTextView) findViewById(R.id.autoComplTipul);
         dataText = (EditText) findViewById(R.id.data);
         soferText = (EditText) findViewById(R.id.sofer);
 
         Intent intent = getIntent();
         _Auto_Id = intent.getIntExtra("auto_Id", 0);
         e_a = new EditAuto(this);
-
+//cautam dupa ID in baza de date
         Auto auto = e_a.getAutoById(_Auto_Id);
         nrText.setText(auto.getNr_inm());
         marcaText.setText(auto.getMarca());
-        tipText.setText(auto.getTip());
+        tipText.setSelection(getIndex(tipText, auto.getTip()));
         dataText.setText(auto.getData());
         soferText.setText(auto.getSofer());
 
@@ -139,6 +140,18 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
     }
 
+    //set spiner base :)
+    private int getIndex(Spinner spinner, String myString) {
+        int index = 0;
+
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 }
 //            auto.setNr_inm(nrText.getText().toString());
 //            auto.setMarca(marcaText.getText().toString());

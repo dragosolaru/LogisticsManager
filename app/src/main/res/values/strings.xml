@@ -9,18 +9,13 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="send">Send</string>
+    <string name="spinner_name">Alege un tip</string>
+
 
     <string-array name="tipuri_auto">
-        <item>Berlină</item>
-        <item>Break</item>
-        <item>Limuzină</item>
-        <item>Pick-up</item>
-        <item>Microbus</item>
-        <item>Autocar</item>
-        <item>Camion</item>
-        <item>TIR</item>
-        <item>Autoutilitara</item>
-        <item>Remorca</item>
-
+        <item>Utilitara</item>
+        <item>Turism</item>
+        <item>Limuzina</item>
+        <item>Decapotabila</item>
     </string-array>
 </resources>
