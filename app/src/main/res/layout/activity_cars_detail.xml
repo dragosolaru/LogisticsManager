@@ -28,30 +28,6 @@
         android:hint="@string/enter_marca"
         android:inputType="textMultiLine|textCapWords" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:entries="@array/tipuri_auto"
-        android:prompt="@string/spinner_name" />
-
-    <!--<AutoCompleteTextView-->
-    <!--android:id="@+id/autoComplTipul"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:ems="10"-->
-    <!--android:hint="@string/enter_type" />-->
-
-
-    <EditText
-        android:id="@+id/data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:focusable="true"
-        android:hint="@string/data_inmatricularii"
-        android:inputType="date"/>
 
     <EditText
         android:id="@+id/sofer"
@@ -62,6 +38,25 @@
         android:inputType="textCapWords">
 
     </EditText>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/spinner_name"
+        android:ems="30"
+        android:entries="@array/tipuri_auto"
+        android:prompt="@string/spinner_name"
+        android:spinnerMode="dialog" />
+
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="@string/data_inmatricularii"
+        android:inputType="date"/>
 
     <LinearLayout
         android:id="@+id/layout_buttons"

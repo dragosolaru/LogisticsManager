@@ -21,7 +21,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     Button btnAdd, btnGetAll;
     TextView auto_Id;
-    EditAuto repo;
+    EditAuto e_a;
     Intent intent;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listeaza();
-        Auto a = new Auto();
+        //Auto a = new Auto();
 
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
@@ -39,8 +39,8 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         btnGetAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dbmanager = new Intent(MainActivity.this, AndroidDatabaseManager.class);
-                startActivity(dbmanager);
+                Intent i = new Intent(MainActivity.this, AndroidDatabaseManager.class);
+                startActivity(i);
             }
         });
 
@@ -57,15 +57,15 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     public void listeaza() {
 
-        repo = new EditAuto(this);
+        e_a = new EditAuto(this);
 
-        ArrayList<HashMap<String, String>> carsList = repo.getCarsList();
+        ArrayList<HashMap<String, String>> carsList = e_a.getCarsList();
         if (carsList.size() != 0) {
             ListView lv = getListView();
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Button btnSaveU = (Button) findViewById(R.id.btnSave);
+                    //Button btnSaveU = (Button) findViewById(R.id.btnSave);
                     auto_Id = (TextView) view.findViewById(R.id.id);
                     String carId = auto_Id.getText().toString();
                     Intent objIndent = new Intent(getApplicationContext(), CarsDetail.class);

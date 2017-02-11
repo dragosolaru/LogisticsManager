@@ -1,6 +1,7 @@
 package com.example.android.logisticsmanager;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -13,7 +14,6 @@ import java.util.Calendar;
 /**
  * Created by Dragos Andrei Olaru on 06.02.2017.
  */
-
 @SuppressLint("ValidFragment")
 public class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     EditText txtdate;
@@ -28,17 +28,15 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
-
-
         // Create a new instance of DatePickerDialog and return it
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        //noinspection ResourceType
+        return new DatePickerDialog(getActivity(), AlertDialog.THEME_HOLO_LIGHT, this, year, month, day);
 
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         //show to the selected date in the text box
         String date=day+"-"+(month+1)+"-"+year;
-
         txtdate.setText(date);
     }
 
