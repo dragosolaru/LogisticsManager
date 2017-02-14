@@ -82,5 +82,11 @@ public class Auto {
         this.sofer = sofer;
     }
 
+    public String getStareRemorca() {
+        if (this.getTip().equalsIgnoreCase("utilitara")) {
+            new Utilitara(this, true);
+            return "Are Remorca";
+        } else return "este autoturism";
+    }
 
 }
