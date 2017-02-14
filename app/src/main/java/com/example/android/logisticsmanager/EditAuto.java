@@ -22,7 +22,6 @@ public class EditAuto {
 
     public void insertAuto(Auto aut) {
 
-        Utilitara u = new Utilitara(aut.getNr_inm(), aut.getMarca(), aut.getTip(), aut.getData(), aut.getSofer(), "ceva altceva");
         db = dbHelper.getReadableDatabase();
         ContentValues contentValue = new ContentValues();
         contentValue.put(DBHelper.NR_INM, aut.getNr_inm());
@@ -30,9 +29,7 @@ public class EditAuto {
         contentValue.put(DBHelper.TIP, aut.getTip());
         contentValue.put(DBHelper.DATA, aut.getData());
         contentValue.put(DBHelper.SOFER, aut.getSofer());
-        if (aut.getTip().equalsIgnoreCase("utilitara")) {
-            contentValue.put(DBHelper.LICENTA, u.getLicenta());
-        }
+        contentValue.put(DBHelper.INFORMATII, aut.getStareRemorca());
         db.insert(DBHelper.TABLE, null, contentValue);
     }
 
@@ -50,6 +47,7 @@ public class EditAuto {
         values.put(DBHelper.TIP, aut.getTip());
         values.put(DBHelper.DATA, aut.getData());
         values.put(DBHelper.SOFER, aut.getSofer());
+        values.put(DBHelper.INFORMATII, aut.getStareRemorca());
 
         int i = db.update(DBHelper.TABLE, values, DBHelper._ID + " = " + _id, null);
         return i;
@@ -65,7 +63,8 @@ public class EditAuto {
                 DBHelper.MARCA + "," +
                 DBHelper.TIP + "," +
                 DBHelper.DATA + "," +
-                DBHelper.SOFER +
+                DBHelper.SOFER + "," +
+                DBHelper.INFORMATII +
                 " FROM " + DBHelper.TABLE;
 
         ArrayList<HashMap<String, String>> carsList = new ArrayList<HashMap<String, String>>();
@@ -82,6 +81,8 @@ public class EditAuto {
                 car.put("tip", cursor.getString(cursor.getColumnIndex(DBHelper.TIP)));
                 car.put("data", cursor.getString(cursor.getColumnIndex(DBHelper.DATA)));
                 car.put("sofer", cursor.getString(cursor.getColumnIndex(DBHelper.SOFER)));
+
+                car.put("informatii", cursor.getString(cursor.getColumnIndex(DBHelper.INFORMATII)));
 
                 carsList.add(car);
             } while (cursor.moveToNext());
@@ -104,7 +105,7 @@ public class EditAuto {
                 + " WHERE " +
                 DBHelper._ID + "=?";// It's a good practice to use parameter ?, instead of concatenate string
 
-        int iCount = 0;
+
         Auto auto = new Auto();
 
         Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(Id)});

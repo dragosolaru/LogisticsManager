@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.Calendar;
+
 /**
  * Created by Dragos Andrei Olaru on 06.02.2017.
  */
@@ -18,9 +19,10 @@ import java.util.Calendar;
 public class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     EditText txtdate;
 
-    public DateDialog(View view){
-        txtdate=(EditText)view;
+    public DateDialog(View view) {
+        txtdate = (EditText) view;
     }
+
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
 // Use the current date as the default date in the dialog
@@ -36,7 +38,7 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         //show to the selected date in the text box
-        String date=day+"-"+(month+1)+"-"+year;
+        String date = day + "-" + (month + 1) + "-" + year;
         txtdate.setText(date);
     }
 

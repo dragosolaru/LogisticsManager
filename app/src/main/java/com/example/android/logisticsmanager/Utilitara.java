@@ -5,35 +5,39 @@ package com.example.android.logisticsmanager;
  */
 
 public class Utilitara extends Auto {
-    String licenta;
+    Boolean remorca;
 
-    public Utilitara(String nr_inm, String marca, String tip, String data, String sofer, String licenta) {
+    public Utilitara(String nr_inm, String marca, String tip, String data, String sofer, Boolean remorca) {
         super(nr_inm, marca, tip, data, sofer);
-        this.licenta = licenta;
+        this.remorca = remorca;
+    }
+
+    public Utilitara(Auto auto, Boolean remorca) {
+        super();
+        this.remorca = remorca;
     }
 
     public Utilitara(Auto a) {
     }
 
-    public Utilitara(String licenta) {
-        this.licenta = licenta;
+    public Utilitara(Boolean remorca) {
+        this.remorca = remorca;
     }
 
     public Utilitara() {
     }
-    //    public Utilitara(Auto aut, String licenta) {
-//        this.licenta = licenta;
+
+    public Boolean getRemorca() {
+        return remorca;
+    }
+
+    public void setRemorca(Boolean remorca) {
+        this.remorca = remorca;
+    }
+//    public String getStareRemorca(){
+//        if (getRemorca()==true){
+//            return "Are Remorca";
+//        }else
+//            return "Nu are remorca";
 //    }
-
-    public String getLicenta() {
-        return licenta;
-    }
-
-    public void setLicenta(String licenta) {
-        this.licenta = licenta;
-    }
-
-    public String areRemorca() {
-        return "cu remorca";
-    }
 }

@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,29 +30,27 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listeaza();
-        //Auto a = new Auto();
 
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
 
         btnGetAll = (Button) findViewById(R.id.btnGetAll);
-        btnGetAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AndroidDatabaseManager.class);
-                startActivity(i);
-            }
-        });
+        btnGetAll.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-        if (view == findViewById(R.id.btnAdd)) {
-            intent = new Intent(this, CarsDetail.class);
-            startActivity(intent);
-
+        switch (view.getId()) {
+            case R.id.btnAdd:
+                intent = new Intent(this, CarsDetail.class);
+                startActivity(intent);
+                break;
+            case R.id.btnGetAll:
+                Intent i = new Intent(MainActivity.this, AndroidDatabaseManager.class);
+                startActivity(i);
+                break;
         }
     }
 
@@ -65,7 +64,6 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //Button btnSaveU = (Button) findViewById(R.id.btnSave);
                     auto_Id = (TextView) view.findViewById(R.id.id);
                     String carId = auto_Id.getText().toString();
                     Intent objIndent = new Intent(getApplicationContext(), CarsDetail.class);
@@ -85,8 +83,10 @@ public class MainActivity extends ListActivity implements android.view.View.OnCl
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

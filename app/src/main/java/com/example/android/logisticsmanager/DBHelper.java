@@ -1,5 +1,6 @@
 package com.example.android.logisticsmanager;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -23,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TIP = "tip_auto";
     public static final String DATA = "data_inmatriculare";
     public static final String SOFER = "sofer";
-    public static final String LICENTA = "licenta";
+    public static final String INFORMATII = "informatii";
     //version number to upgrade database version
     //each time if you Add, Edit table, you need to change the
     //version number.
@@ -39,10 +40,10 @@ public class DBHelper extends SQLiteOpenHelper {
             + TIP + " TEXT NOT NULL, "
             + DATA + " TEXT NOT NULL, "
             + SOFER + " TEXT NOT NULL, "
-            + LICENTA + " TEXT);";
+            + INFORMATII + " TEXT);";
 
     private static final String DATABASE_ALTER_CARS_1 = "ALTER TABLE "
-            + TABLE + " ADD COLUMN " + LICENTA + " string;";
+            + TABLE + " ADD COLUMN " + INFORMATII + " string;";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -52,6 +53,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //All necessary tables you like to create will create here
         db.execSQL(CREATE_TABLE_CARS);
+        populate(db);
+//        db.close();
     }
 
     @Override
@@ -61,6 +64,24 @@ public class DBHelper extends SQLiteOpenHelper {
         // Create tables again
         onCreate(db);
 
+    }
+
+    public void populate(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+        cv.put(DBHelper.NR_INM, "CJ-21-GTR");
+        cv.put(DBHelper.MARCA, "Renault");
+        cv.put(DBHelper.SOFER, "Georgel");
+        cv.put(DBHelper.DATA, "11-9-2016");
+        cv.put(DBHelper.TIP, "Autoturism");
+        cv.put(DBHelper.INFORMATII, "este autoturism");
+        db.insert(DBHelper.TABLE, null, cv);
+        cv.put(DBHelper.NR_INM, "SB-03-AAA");
+        cv.put(DBHelper.MARCA, "Mercedes");
+        cv.put(DBHelper.SOFER, "Mihai");
+        cv.put(DBHelper.DATA, "1-12-2014");
+        cv.put(DBHelper.TIP, "Utilitara");
+        cv.put(DBHelper.INFORMATII, "Are Remorca");
+        db.insert(DBHelper.TABLE, null, cv);
     }
 
     public ArrayList<Cursor> getData(String Query) {

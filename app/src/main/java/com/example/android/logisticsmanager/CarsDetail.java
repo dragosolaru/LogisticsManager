@@ -61,10 +61,14 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
                 break;
 
             case R.id.btnDelete:
-                e_a.delete(_Auto_Id);
-                Toast.makeText(this, "Cars Record Deleted", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-                finish();
+                if (_Auto_Id == 0) {
+                    Toast.makeText(this, "No entry to delete", Toast.LENGTH_SHORT).show();
+                } else {
+                    e_a.delete(_Auto_Id);
+                    Toast.makeText(this, "Cars Record Deleted", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    finish();
+                }
                 break;
 
             case R.id.btnSend:
@@ -78,11 +82,9 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
                 }
-
         }
 
     }
-
 
 
     public void takeAndManInfo() {
@@ -98,14 +100,15 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
         Intent intent = getIntent();
         _Auto_Id = intent.getIntExtra("auto_Id", 0);
-        e_a = new EditAuto(this);
-//cautam si populam dupa ID in baza de date
+        e_a = new EditAuto(this);                   //cautam si populam dupa ID in baza de date
         Auto auto = e_a.getAutoById(_Auto_Id);
         nrText.setText(auto.getNr_inm());
         marcaText.setText(auto.getMarca());
         tipText.setSelection(getIndex(tipText, auto.getTip()));
         dataText.setText(auto.getData());
         soferText.setText(auto.getSofer());
+
+        //    Toast.makeText(getApplicationContext(), "ID= " + _Auto_Id, Toast.LENGTH_SHORT).show();
 
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
@@ -136,6 +139,14 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
         return index;
     }
 }
+//  public void onItemSelected(AdapterView<?> parent, View view, int pos,
+//                               long id) {
+//
+//        Toast.makeText(parent.getContext(),
+//                "OnItemSelectedListener : " +
+//                        parent.getItemAtPosition(pos).toString(),
+//                Toast.LENGTH_SHORT).show();
+//
 //            auto.setNr_inm(nrText.getText().toString());
 //            auto.setMarca(marcaText.getText().toString());
 //            auto.setTip(tipText.getText().toString());
@@ -159,3 +170,26 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 //        tipText.setThreshold(1);//will start working from first character
 //        tipText.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
 //    }
+
+//tipText.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//@Override
+//public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        int i=position;
+//        switch (i){
+//        case 0:
+//        break;
+//        //  Toast.makeText(getApplicationContext(),"este autoutilitara",Toast.LENGTH_LONG).show();
+//        case 1:
+//        Toast.makeText(getApplicationContext(),"este autoutilitara",Toast.LENGTH_LONG).show();
+//        break;
+//        case 2:
+//        Toast.makeText(getApplicationContext(),"este autoturism",Toast.LENGTH_LONG).show();
+//        break;
+//        }
+//        }
+//
+//@Override
+//public void onNothingSelected(AdapterView<?> parent) {
+//
+//        }
+//        });
