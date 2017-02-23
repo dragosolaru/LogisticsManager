@@ -21,10 +21,11 @@
         android:inputType="textCapCharacters" />
 
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/marca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:completionThreshold="1"
         android:ems="10"
         android:hint="@string/enter_marca"
         android:inputType="textMultiLine|textCapWords" />

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -14,7 +16,7 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
     public Button btnSave, btnDelete, btnSend;
     private EditText nrText;
-    private EditText marcaText;
+    private AutoCompleteTextView marcaText;
     private EditText dataText;
     private EditText soferText;
     private int _Auto_Id;
@@ -88,12 +90,15 @@ public class CarsDetail extends AppCompatActivity implements android.view.View.O
 
 
     public void takeAndManInfo() {
+        String[] marca = getResources().getStringArray(R.array.makes_array);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, marca);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnSend = (Button) findViewById(R.id.btnSend);
 
         nrText = (EditText) findViewById(R.id.numar);
-        marcaText = (EditText) findViewById(R.id.marca);
+        marcaText = (AutoCompleteTextView) findViewById(R.id.marca);
+        marcaText.setAdapter(adapter);
         tipText = (Spinner) findViewById(R.id.spinner);
         dataText = (EditText) findViewById(R.id.data);
         soferText = (EditText) findViewById(R.id.sofer);

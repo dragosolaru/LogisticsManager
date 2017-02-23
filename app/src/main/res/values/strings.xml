@@ -1,15 +1,46 @@
 <resources>
     <string name="app_name">LogisticsManager</string>
-    <string name="enter_nr">numar inmatriculare</string>
-    <string name="enter_marca">marca</string>
-    <string name="enter_type">tipul</string>
-    <string name="data_inmatricularii">data inmatricuarii</string>
-    <string name="sofer">nume sofer</string>
-    <string name="add_record">Add Cars</string>
-    <string name="save">Save</string>
+    <string name="enter_nr">Numar Inmatriculare</string>
+    <string name="enter_marca">Marca</string>
+    <string name="enter_type">Tip</string>
+    <string name="data_inmatricularii">Data Inmatricuarii</string>
+    <string name="sofer">Nume Sofer</string>
+    <string name="add_record">Adauga Auto</string>
+    <string name="save">Salveaza</string>
     <string name="delete">Delete</string>
-    <string name="send">Send</string>
+    <string name="send">Trimite</string>
     <string name="spinner_name">Alege un tip</string>
+
+
+    <string-array name="makes_array">
+        <item>Ford</item>
+        <item>Iveco</item>
+        <item>Daf</item>
+        <item>Dacia</item>
+        <item>Audi</item>
+        <item>Bmw</item>
+        <item>Renault</item>
+        <item>Opel</item>
+        <item>Man</item>
+        <item>Mercedes</item>
+        <item>Honda</item>
+        <item>Toyota</item>
+        <item>Scania</item>
+        <item>Peugeot</item>
+        <item>Pontiac</item>
+        <item>Porsche</item>
+        <item>Mitsubishi</item>
+        <item>Rolls-Royce</item>
+        <item>Saab</item>
+        <item>Seat</item>
+        <item>Škoda</item>
+        <item>Smart</item>
+        <item>Subaru</item>
+        <item>Suzuki</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+
+    </string-array>
 
 
     <string-array name="tipuri_auto">

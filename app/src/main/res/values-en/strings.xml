@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LogisticsManager</string>
+    <string name="data_inmatricularii">Register date</string>
+    <string name="delete">Delete</string>
+    <string name="enter_marca">Makes</string>
+    <string name="enter_nr">Registration No.</string>
+    <string name="enter_type">Type</string>
+    <string name="sofer">Driver</string>
+    <string name="save">Save</string>
+    <string name="send">Send</string>
+    <string name="spinner_name">Select Type</string>
+    <string name="add_record">Add Car</string>
+</resources>

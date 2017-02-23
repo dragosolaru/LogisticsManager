@@ -86,7 +86,7 @@ public class Auto {
         if (this.getTip().equalsIgnoreCase("utilitara")) {
             new Utilitara(this, true);
             return "Are Remorca";
-        } else return "este autoturism";
+        } else return "Dep. Vanzari";
     }
 
 }
